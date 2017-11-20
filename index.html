@@ -1,0 +1,728 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Proxy Generics Documentation</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="index" data-languages="[&quot;javascript&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo.png" class="logo" alt="Logo" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="javascript">javascript</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#what-are-proxy-generics" class="toc-h2 toc-link" data-title="What are Proxy Generics?">What are Proxy Generics?</a>
+                  </li>
+                  <li>
+                    <a href="#current-generics" class="toc-h2 toc-link" data-title="Current Generics">Current Generics</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#installation" class="toc-h1 toc-link" data-title="Installation">Installation</a>
+          </li>
+          <li>
+            <a href="#configuration" class="toc-h1 toc-link" data-title="Configuration">Configuration</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#config-main-js" class="toc-h2 toc-link" data-title="config/main.js">config/main.js</a>
+                  </li>
+                  <li>
+                    <a href="#config-proxygenerics-js" class="toc-h2 toc-link" data-title="config/proxyGenerics.js">config/proxyGenerics.js</a>
+                  </li>
+                  <li>
+                    <a href="#usage" class="toc-h2 toc-link" data-title="Usage">Usage</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#email-provider" class="toc-h1 toc-link" data-title="Email Provider">Email Provider</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#emailgenericservice-send" class="toc-h2 toc-link" data-title="EmailGenericService.send">EmailGenericService.send</a>
+                  </li>
+                  <li>
+                    <a href="#emailgenericservice-sendtemplate" class="toc-h2 toc-link" data-title="EmailGenericService.sendTemplate">EmailGenericService.sendTemplate</a>
+                  </li>
+                  <li>
+                    <a href="#creating-an-email-provider-generic" class="toc-h2 toc-link" data-title="Creating an Email Provider Generic">Creating an Email Provider Generic</a>
+                  </li>
+                  <li>
+                    <a href="#supported-email-providers" class="toc-h2 toc-link" data-title="Supported Email Providers">Supported Email Providers</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#geolocation-provider" class="toc-h1 toc-link" data-title="Geolocation Provider">Geolocation Provider</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#geolocationgenericservice-locate" class="toc-h2 toc-link" data-title="GeolocationGenericService.locate">GeolocationGenericService.locate</a>
+                  </li>
+                  <li>
+                    <a href="#creating-a-geolocation-provider-generic" class="toc-h2 toc-link" data-title="Creating a Geolocation Provider Generic">Creating a Geolocation Provider Generic</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#tag-provider" class="toc-h1 toc-link" data-title="Tag Provider">Tag Provider</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#taxgenericservice-getrate" class="toc-h2 toc-link" data-title="TaxGenericService.getRate">TaxGenericService.getRate</a>
+                  </li>
+                  <li>
+                    <a href="#creating-a-tax-provider-generic" class="toc-h2 toc-link" data-title="Creating a Tax Provider Generic">Creating a Tax Provider Generic</a>
+                  </li>
+                  <li>
+                    <a href="#supported-tax-providers" class="toc-h2 toc-link" data-title="Supported Tax Providers">Supported Tax Providers</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#shipping-provider" class="toc-h1 toc-link" data-title="Shipping Provider">Shipping Provider</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#shipping-provider-todo" class="toc-h2 toc-link" data-title="Shipping Provider (TODO)">Shipping Provider (TODO)</a>
+                  </li>
+                  <li>
+                    <a href="#shippinggenericservice-getrate" class="toc-h2 toc-link" data-title="ShippingGenericService.getRate">ShippingGenericService.getRate</a>
+                  </li>
+                  <li>
+                    <a href="#shippinggenericservice-getrates" class="toc-h2 toc-link" data-title="ShippingGenericService.getRates">ShippingGenericService.getRates</a>
+                  </li>
+                  <li>
+                    <a href="#creating-a-shipping-provider-generic" class="toc-h2 toc-link" data-title="Creating a Shipping Provider Generic">Creating a Shipping Provider Generic</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#fulfillment-provider" class="toc-h1 toc-link" data-title="Fulfillment Provider">Fulfillment Provider</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#fulfillmentgenericservice-createorder" class="toc-h2 toc-link" data-title="FulfillmentGenericService.createOrder">FulfillmentGenericService.createOrder</a>
+                  </li>
+                  <li>
+                    <a href="#fulfillmentgenericservice-createorders" class="toc-h2 toc-link" data-title="FulfillmentGenericService.createOrders">FulfillmentGenericService.createOrders</a>
+                  </li>
+                  <li>
+                    <a href="#fulfillmentgenericservice-updateorder" class="toc-h2 toc-link" data-title="FulfillmentGenericService.updateOrder">FulfillmentGenericService.updateOrder</a>
+                  </li>
+                  <li>
+                    <a href="#fulfillmentgenericservice-updateorders" class="toc-h2 toc-link" data-title="FulfillmentGenericService.updateOrders">FulfillmentGenericService.updateOrders</a>
+                  </li>
+                  <li>
+                    <a href="#fulfillmentgenericservice-destroyorder" class="toc-h2 toc-link" data-title="FulfillmentGenericService.destroyOrder">FulfillmentGenericService.destroyOrder</a>
+                  </li>
+                  <li>
+                    <a href="#fulfillmentgenericservice-destroyorders" class="toc-h2 toc-link" data-title="FulfillmentGenericService.destroyOrders">FulfillmentGenericService.destroyOrders</a>
+                  </li>
+                  <li>
+                    <a href="#fulfillmentgenericservice-getorder" class="toc-h2 toc-link" data-title="FulfillmentGenericService.getOrder">FulfillmentGenericService.getOrder</a>
+                  </li>
+                  <li>
+                    <a href="#fulfillmentgenericservice-getorders" class="toc-h2 toc-link" data-title="FulfillmentGenericService.getOrders">FulfillmentGenericService.getOrders</a>
+                  </li>
+                  <li>
+                    <a href="#fulfillmentgenericservice-holdorder" class="toc-h2 toc-link" data-title="FulfillmentGenericService.holdOrder">FulfillmentGenericService.holdOrder</a>
+                  </li>
+                  <li>
+                    <a href="#fulfillmentgenericservice-holdorders" class="toc-h2 toc-link" data-title="FulfillmentGenericService.holdOrders">FulfillmentGenericService.holdOrders</a>
+                  </li>
+                  <li>
+                    <a href="#creating-a-fulfillment-provider-generic" class="toc-h2 toc-link" data-title="Creating a Fulfillment Provider Generic">Creating a Fulfillment Provider Generic</a>
+                  </li>
+                  <li>
+                    <a href="#supported-fulfillment-providers" class="toc-h2 toc-link" data-title="Supported Fulfillment Providers">Supported Fulfillment Providers</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#payment-processor" class="toc-h1 toc-link" data-title="Payment Processor">Payment Processor</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#paymentgenericservice-authorize" class="toc-h2 toc-link" data-title="PaymentGenericService.authorize">PaymentGenericService.authorize</a>
+                  </li>
+                  <li>
+                    <a href="#paymentgenericservice-capture" class="toc-h2 toc-link" data-title="PaymentGenericService.capture">PaymentGenericService.capture</a>
+                  </li>
+                  <li>
+                    <a href="#paymentgenericservice-sale" class="toc-h2 toc-link" data-title="PaymentGenericService.sale">PaymentGenericService.sale</a>
+                  </li>
+                  <li>
+                    <a href="#paymentgenericservice-void" class="toc-h2 toc-link" data-title="PaymentGenericService.void">PaymentGenericService.void</a>
+                  </li>
+                  <li>
+                    <a href="#paymentgenericservice-refund" class="toc-h2 toc-link" data-title="PaymentGenericService.refund">PaymentGenericService.refund</a>
+                  </li>
+                  <li>
+                    <a href="#paymentgenericservice-createcustomer" class="toc-h2 toc-link" data-title="PaymentGenericService.createCustomer">PaymentGenericService.createCustomer</a>
+                  </li>
+                  <li>
+                    <a href="#paymentgenericservice-updatecustomer" class="toc-h2 toc-link" data-title="PaymentGenericService.updateCustomer">PaymentGenericService.updateCustomer</a>
+                  </li>
+                  <li>
+                    <a href="#paymentgenericservice-findcustomer" class="toc-h2 toc-link" data-title="PaymentGenericService.findCustomer">PaymentGenericService.findCustomer</a>
+                  </li>
+                  <li>
+                    <a href="#paymentgenericservice-getcustomersources" class="toc-h2 toc-link" data-title="PaymentGenericService.getCustomerSources">PaymentGenericService.getCustomerSources</a>
+                  </li>
+                  <li>
+                    <a href="#paymentgenericservice-createcustomersource" class="toc-h2 toc-link" data-title="PaymentGenericService.createCustomerSource">PaymentGenericService.createCustomerSource</a>
+                  </li>
+                  <li>
+                    <a href="#paymentgenericservice-updatecustomersource" class="toc-h2 toc-link" data-title="PaymentGenericService.updateCustomerSource">PaymentGenericService.updateCustomerSource</a>
+                  </li>
+                  <li>
+                    <a href="#paymentgenericservice-findcustomersource" class="toc-h2 toc-link" data-title="PaymentGenericService.findCustomerSource">PaymentGenericService.findCustomerSource</a>
+                  </li>
+                  <li>
+                    <a href="#paymentgenericservice-removecustomersource" class="toc-h2 toc-link" data-title="PaymentGenericService.removeCustomerSource">PaymentGenericService.removeCustomerSource</a>
+                  </li>
+                  <li>
+                    <a href="#creating-a-payment-processor-generic" class="toc-h2 toc-link" data-title="Creating a Payment Processor Generic">Creating a Payment Processor Generic</a>
+                  </li>
+                  <li>
+                    <a href="#supported-payment-processors" class="toc-h2 toc-link" data-title="Supported Payment Processors">Supported Payment Processors</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#data-store-provider" class="toc-h1 toc-link" data-title="Data Store Provider">Data Store Provider</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#datastoregenericservice-upload" class="toc-h2 toc-link" data-title="DataStoreGenericService.upload">DataStoreGenericService.upload</a>
+                  </li>
+                  <li>
+                    <a href="#datastoregenericservice-uploadfile" class="toc-h2 toc-link" data-title="DataStoreGenericService.uploadFile">DataStoreGenericService.uploadFile</a>
+                  </li>
+                  <li>
+                    <a href="#datastoregenericservice-uploadfiles" class="toc-h2 toc-link" data-title="DataStoreGenericService.uploadFiles">DataStoreGenericService.uploadFiles</a>
+                  </li>
+                  <li>
+                    <a href="#creating-a-data-store-provider-plugin" class="toc-h2 toc-link" data-title="Creating a Data Store Provider Plugin">Creating a Data Store Provider Plugin</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#image-provider" class="toc-h1 toc-link" data-title="Image Provider">Image Provider</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#creating-an-image-provider-plugin" class="toc-h2 toc-link" data-title="Creating an Image Provider Plugin">Creating an Image Provider Plugin</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#render-provider" class="toc-h1 toc-link" data-title="Render Provider">Render Provider</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#rendergenericservice-render" class="toc-h2 toc-link" data-title="RenderGenericService.render">RenderGenericService.render</a>
+                  </li>
+                  <li>
+                    <a href="#rendergenericservice-rendersync" class="toc-h2 toc-link" data-title="RenderGenericService.renderSync">RenderGenericService.renderSync</a>
+                  </li>
+                  <li>
+                    <a href="#creating-a-render-service-plugin" class="toc-h2 toc-link" data-title="Creating a Render Service Plugin">Creating a Render Service Plugin</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+          </li>
+      </div>
+        <ul class="toc-footer">
+            <li><a href='https://github.com/CaliStyle/trailpack-proxy-engine'>Proxy Engine</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='introduction'>Introduction</h1>
+<p>Welcome to the Proxy Generics for Proxy Engine Docs! <a href="https://github.com/CaliStyle/trailpack-proxy-engine">Proxy Engine</a> is an Open Source Node.js Framework created by the team at <a href="https://cali-style.com">Cali Style Technologies</a>.</p>
+<h2 id='what-are-proxy-generics'>What are Proxy Generics?</h2>
+<p>Generics are common features that web applications need but implement differently. The result of a Generic is a normalized way of handling these different services.</p>
+
+<p>A generic is a great way to implement 3rd parties. You can write your application to implement a single service but easily swap out the the 3rd party.</p>
+
+<p>Generics can add their own Models, Controllers, Services, and Policies so they can support things like vendor specific webhooks or extend functionality.</p>
+<h2 id='current-generics'>Current Generics</h2>
+<ul>
+<li>Email Provider</li>
+<li>Payment Processors</li>
+<li>Tax Provider</li>
+<li>Shipping Provider</li>
+<li>Fulfillment Provider</li>
+<li>Geolocation</li>
+<li>Image Manipulation</li>
+<li>HTML rendering</li>
+<li>whatever you need!</li>
+</ul>
+
+<p>Can you think of a generic or method we missed? Create a PR!</p>
+<h1 id='installation'>Installation</h1>
+<p>To install Proxy Generics:</p>
+
+<p><code>
+$ npm install trailpack-proxy-generics
+</code></p>
+
+<p>If you are using Trail&#39;s yo generator:</p>
+
+<p><code>
+$ yo trails:trailpack trailpack-proxy-generics
+</code></p>
+<h1 id='configuration'>Configuration</h1>
+<p>To configure Proxy Generics is simple, there are only 2 files to create/modify:</p>
+<h2 id='config-main-js'>config/main.js</h2>
+<blockquote>
+<p>config/main.js</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">packs</span><span class="p">:</span> <span class="p">[</span>
+    <span class="c1">// ... other trailpacks</span>
+    <span class="nx">require</span><span class="p">(</span><span class="s1">'trailpack-proxy-generics'</span><span class="p">)</span>
+    <span class="c1">// ... other proxy-packs</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</code></pre>
+<p>Like all Trails&#39; trailpacks, it must be included in the <code>config/main.js</code> file.</p>
+<h2 id='config-proxygenerics-js'>config/proxyGenerics.js</h2>
+<blockquote>
+<p>config/proxyGenerics.js</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="c1">// ... any generic</span>
+  <span class="na">payment_processor</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">adapter</span><span class="p">:</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'&lt;adapter&gt;'</span><span class="p">),</span>
+      <span class="na">options</span><span class="p">:</span> <span class="p">{</span>
+          <span class="na">whatever_key</span><span class="p">:</span> <span class="s1">'&lt;what ever you need here&gt;'</span>
+      <span class="p">},</span>
+      <span class="na">api</span><span class="p">:</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'&lt;adapter&gt;/api'</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<p>Also, Proxy Generics takes it&#39;s own config in the <code>config/proxyGenerics.js</code> file.</p>
+<h3 id='config-parameters'>Config Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+<h2 id='usage'>Usage</h2>
+<p>Many different modules in Proxy Engine will rely on a generic to complete a task. Generics are easy to create and use.</p>
+<h3 id='validation'>Validation</h3>
+<p>Every Generic call is validated twice: </p>
+
+<ul>
+<li>When data is passed to the generic.</li>
+<li>When there is a successful response from the generic.</li>
+</ul>
+
+<p>This allows for generics to stay consistent with their requests and responses.</p>
+
+<aside class="success">
+NOTE:
+If a an instance of a model is passed to the generic, then the generic must mutate it return the same instance.
+</aside>
+<h1 id='email-provider'>Email Provider</h1>
+<p>The Email Provider handles sending emails from different email providers eg. Mandrill, MailGun.</p>
+<h2 id='emailgenericservice-send'>EmailGenericService.send</h2>
+<p>Sends an Email</p>
+<h2 id='emailgenericservice-sendtemplate'>EmailGenericService.sendTemplate</h2>
+<p>Sends an Email Template</p>
+<h2 id='creating-an-email-provider-generic'>Creating an Email Provider Generic</h2><h2 id='supported-email-providers'>Supported Email Providers</h2>
+<ul>
+<li><a href="https://github.com/CaliStyle/proxy-generics-mandrill">Mandrill</a></li>
+</ul>
+<h1 id='geolocation-provider'>Geolocation Provider</h1>
+<p>The Geolocation Provider handles resolving geographical locations.</p>
+<h2 id='geolocationgenericservice-locate'>GeolocationGenericService.locate</h2>
+<p>Resolves the geolocation of an address, validates an address, normalizes an address.</p>
+<h2 id='creating-a-geolocation-provider-generic'>Creating a Geolocation Provider Generic</h2><pre class="highlight plaintext"><code>TODO
+</code></pre><h1 id='tag-provider'>Tag Provider</h1>
+<p>The Tax Provider handles sales tax for items sold from different tax providers eg. TaxBundle</p>
+<h2 id='taxgenericservice-getrate'>TaxGenericService.getRate</h2>
+<p>Gets the tax rate for a purchase transaction.</p>
+<h2 id='creating-a-tax-provider-generic'>Creating a Tax Provider Generic</h2><pre class="highlight plaintext"><code>TODO EXAMPLE
+</code></pre><h2 id='supported-tax-providers'>Supported Tax Providers</h2>
+<ul>
+<li><a href="https://github.com/CaliStyle/proxy-generics-taxjar">Taxjar</a></li>
+</ul>
+<h1 id='shipping-provider'>Shipping Provider</h1>
+<p>The Shipping Provider handles shipping rates from a location to a destination from different shipping providers eg. Shipstation, USPS, FedEx, UPS.</p>
+<h3 id='shipping-provider-todo'>Shipping Provider (TODO)</h3>
+<p>The Shipping Provider handles shipping rates from a location to a destination from different shipping providers eg. Shipstation, USPS, FedEx, UPS</p>
+<h2 id='shippinggenericservice-getrate'>ShippingGenericService.getRate</h2>
+<p>Gets a single carrier rate.</p>
+<h2 id='shippinggenericservice-getrates'>ShippingGenericService.getRates</h2>
+<p>Gets all carrier rates</p>
+<h2 id='creating-a-shipping-provider-generic'>Creating a Shipping Provider Generic</h2><pre class="highlight plaintext"><code>TODO EXAMPLE
+</code></pre><h1 id='fulfillment-provider'>Fulfillment Provider</h1>
+<p>The Fulfillment Provider handles fulfillment events from a location to a destination from different fulfillment providers eg. Shipstation, Amazon, Custom</p>
+<h2 id='fulfillmentgenericservice-createorder'>FulfillmentGenericService.createOrder</h2>
+<p>Creates an order in fulfillment</p>
+<h2 id='fulfillmentgenericservice-createorders'>FulfillmentGenericService.createOrders</h2>
+<p>Creates multiple orders in fulfillment</p>
+<h2 id='fulfillmentgenericservice-updateorder'>FulfillmentGenericService.updateOrder</h2>
+<p>Updates an order in fulfillment</p>
+<h2 id='fulfillmentgenericservice-updateorders'>FulfillmentGenericService.updateOrders</h2>
+<p>Updates multiple orders in fulfillment</p>
+<h2 id='fulfillmentgenericservice-destroyorder'>FulfillmentGenericService.destroyOrder</h2>
+<p>Destroys an order in fulfillment</p>
+<h2 id='fulfillmentgenericservice-destroyorders'>FulfillmentGenericService.destroyOrders</h2>
+<p>Destroys multiple orders in fulfillment</p>
+<h2 id='fulfillmentgenericservice-getorder'>FulfillmentGenericService.getOrder</h2>
+<p>Retrieves an order in fulfillment</p>
+<h2 id='fulfillmentgenericservice-getorders'>FulfillmentGenericService.getOrders</h2>
+<p>Retrieves multiple orders in fulfillment</p>
+<h2 id='fulfillmentgenericservice-holdorder'>FulfillmentGenericService.holdOrder</h2>
+<p>Creates an order hold in fulfillment</p>
+<h2 id='fulfillmentgenericservice-holdorders'>FulfillmentGenericService.holdOrders</h2>
+<p>Creates multiple order holds in fulfillment</p>
+<h2 id='creating-a-fulfillment-provider-generic'>Creating a Fulfillment Provider Generic</h2><pre class="highlight plaintext"><code>TODO EXAMPLE
+</code></pre><h2 id='supported-fulfillment-providers'>Supported Fulfillment Providers</h2>
+<ul>
+<li><a href="https://github.com/CaliStyle/proxy-generics-shippo">Shippo</a></li>
+<li><a href="https://github.com/CaliStyle/proxy-generics-shipstation">Shipstation</a></li>
+</ul>
+<h1 id='payment-processor'>Payment Processor</h1>
+<p>The Payment Processor handles payments from different merchant processors/terminals eg. Stripe, Authorize.net.</p>
+<h2 id='paymentgenericservice-authorize'>PaymentGenericService.authorize</h2>
+<p>Authorizes a purchase transaction</p>
+<h2 id='paymentgenericservice-capture'>PaymentGenericService.capture</h2>
+<p>Captures an authorized purchase transaction</p>
+<h2 id='paymentgenericservice-sale'>PaymentGenericService.sale</h2>
+<p>Authorizes and captures a purchase transaction</p>
+<h2 id='paymentgenericservice-void'>PaymentGenericService.void</h2>
+<p>Voids an authorized purchase transaction</p>
+<h2 id='paymentgenericservice-refund'>PaymentGenericService.refund</h2>
+<p>Partially Refunds/Refunds a purchase transaction</p>
+<h2 id='paymentgenericservice-createcustomer'>PaymentGenericService.createCustomer</h2>
+<p>Create a Customer Account</p>
+<h2 id='paymentgenericservice-updatecustomer'>PaymentGenericService.updateCustomer</h2>
+<p>Update a Customer Account</p>
+<h2 id='paymentgenericservice-findcustomer'>PaymentGenericService.findCustomer</h2>
+<p>Find a Created Customer Account</p>
+<h2 id='paymentgenericservice-getcustomersources'>PaymentGenericService.getCustomerSources</h2>
+<p>Get Customer Sources (Payment Methods)</p>
+<h2 id='paymentgenericservice-createcustomersource'>PaymentGenericService.createCustomerSource</h2>
+<p>Create Customer Source (Payment Methods)</p>
+<h2 id='paymentgenericservice-updatecustomersource'>PaymentGenericService.updateCustomerSource</h2>
+<p>Update Customer Source (Payment Methods)</p>
+<h2 id='paymentgenericservice-findcustomersource'>PaymentGenericService.findCustomerSource</h2>
+<p>Find a Customer Source (Payment Methods)</p>
+<h2 id='paymentgenericservice-removecustomersource'>PaymentGenericService.removeCustomerSource</h2>
+<p>Remove a Customer Source (Payment Methods)</p>
+<h2 id='creating-a-payment-processor-generic'>Creating a Payment Processor Generic</h2>
+<p>TODO EXAMPLE</p>
+<h2 id='supported-payment-processors'>Supported Payment Processors</h2>
+<ul>
+<li><a href="https://github.com/CaliStyle/proxy-generics-stripe">Stripe</a></li>
+<li><a href="https://github.com/CaliStyle/proxy-generics-authorize-net">Authorize.net</a></li>
+</ul>
+<h1 id='data-store-provider'>Data Store Provider</h1>
+<p>The Data Store provider handles uploads and downloads to a remote data store eg. AWS, gCloud, and some permissions.</p>
+<h2 id='datastoregenericservice-upload'>DataStoreGenericService.upload</h2>
+<p>Uploads a buffer to a data store</p>
+<h2 id='datastoregenericservice-uploadfile'>DataStoreGenericService.uploadFile</h2>
+<p>Uploads a file to a data store</p>
+<h2 id='datastoregenericservice-uploadfiles'>DataStoreGenericService.uploadFiles</h2>
+<p>Uploads files to a data store</p>
+<h2 id='creating-a-data-store-provider-plugin'>Creating a Data Store Provider Plugin</h2><pre class="highlight plaintext"><code>TODO EXAMPLE
+</code></pre><h1 id='image-provider'>Image Provider</h1>
+<p>Handles image manipulation.</p>
+<h2 id='creating-an-image-provider-plugin'>Creating an Image Provider Plugin</h2><pre class="highlight plaintext"><code>TODO EXAMPLE
+</code></pre><h1 id='render-provider'>Render Provider</h1>
+<p>Handles rendering of html and Metadata</p>
+<pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="nl">document</span><span class="p">:</span> <span class="s1">'&lt;h1&gt;Hello World&lt;/h1&gt;'</span>
+    <span class="nl">meta</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nl">key</span><span class="p">:</span> <span class="s1">'Look at Me!'</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre><h2 id='rendergenericservice-render'>RenderGenericService.render</h2>
+<p>Renders markdown/html string asynchronously.</p>
+<h2 id='rendergenericservice-rendersync'>RenderGenericService.renderSync</h2>
+<p>Renders markdown/html string synchronously.</p>
+<h2 id='creating-a-render-service-plugin'>Creating a Render Service Plugin</h2><pre class="highlight javascript tab-javascript"><code><span class="nx">TODO</span> <span class="nx">EXAMPLE</span>
+</code></pre><h4 id='supported-render-services'>Supported Render Services</h4>
+<ul>
+<li><a href="https://github.com/CaliStyle/proxy-generics-render">Render</a></li>
+</ul>
+<h1 id='errors'>Errors</h1>
+<p>The Proxy Engine API uses the following error codes:</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request -- Your request sucks.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized -- Your API key is wrong.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden -- The requested is hidden for administrators only.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found -- The specified could not be found.</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
+</tr>
+<tr>
+<td>406</td>
+<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
+</tr>
+<tr>
+<td>410</td>
+<td>Gone -- The requested has been removed from our servers.</td>
+</tr>
+<tr>
+<td>418</td>
+<td>I&#39;m a teapot.</td>
+</tr>
+<tr>
+<td>429</td>
+<td>Too Many Requests -- You&#39;re requesting too often! Slow down!</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="javascript">javascript</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
